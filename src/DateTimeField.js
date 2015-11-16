@@ -268,7 +268,7 @@ export default class DateTimeField extends Component {
         "dropdown-menu": true
       };
       offset = {
-        top: gBCR.top + window.pageYOffset - document.documentElement.clientTop,
+        top: gBCR.top + window.pageYOffset - document.documentElement.clientTop - 65,
         left: gBCR.left + window.pageXOffset - document.documentElement.clientLeft
       };
       offset.top = offset.top + this.refs.datetimepicker.offsetHeight;
@@ -280,7 +280,7 @@ export default class DateTimeField extends Component {
         classes.bottom = false;
         classes["pull-right"] = true;
       } else {
-        offset.top = 40;
+        //offset.top = 40;
         classes.top = false;
         classes.bottom = true;
         classes["pull-right"] = true;
