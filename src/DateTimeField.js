@@ -272,9 +272,8 @@ export default class DateTimeField extends Component {
         top: gBCR.top + window.pageYOffset - document.documentElement.clientTop,
         left: gBCR.left + window.pageXOffset - document.documentElement.clientLeft
       };
-      var dom = ReactDOM.findDOMNode(this);
-      offset.top = dom.offsetTop - 65;
-      //offset.top = offset.top + this.refs.datetimepicker.offsetHeight;
+      var domNode = ReactDOM.findDOMNode(this);
+      offset.top = domNode.offsetTop + this.refs.datetimepicker.offsetHeight;
       scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
       placePosition = this.props.direction === "up" ? "top" : this.props.direction === "bottom" ? "bottom" : this.props.direction === "auto" ? offset.top + this.refs.widget.offsetHeight > window.offsetHeight + scrollTop && this.refs.widget.offsetHeight + this.refs.datetimepicker.offsetHeight > offset.top ? "top" : "bottom" : void 0;
       if (placePosition === "top") {
@@ -283,7 +282,7 @@ export default class DateTimeField extends Component {
         classes.bottom = false;
         classes["pull-right"] = true;
       } else {
-        offset.top = 40;
+        //offset.top = 40;
         classes.top = false;
         classes.bottom = true;
         classes["pull-right"] = true;
